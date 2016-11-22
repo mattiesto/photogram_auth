@@ -53,11 +53,6 @@ Rails.application.routes.draw do
   get "/delete_photo/:id", :controller => "photos", :action => "destroy"
   #------------------------------
 
-  # Routes for the User resource:
-
-  # READ
-  get "/users", :controller => "users", :action => "index"
-  get "/users/:id", :controller => "users", :action => "show"
 
 
   devise_for :users
@@ -115,4 +110,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # Routes for the User resource:
+
+  # READ
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
+
 end
