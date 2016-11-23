@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   #   end
 
   # Routes for the User resource:
-  
+
   root "photos#index"
 
   # CREATE
@@ -116,5 +116,8 @@ Rails.application.routes.draw do
   # READ
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
+
+  # MYLIKES
+  get "/my_likes", :controller => "users", :action => "likes"
 
 end
