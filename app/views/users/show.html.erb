@@ -1,3 +1,24 @@
 <div class="page-header">
-  <h3><%= @users.username %></h3>
+  <h3><%= @user.username %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+
+      <% @photos.each do |photo| %>
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= photo.caption %>
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        <tr>
+          <td><img src="<%= photo.image %>" width=480></td>
+        </tr>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
