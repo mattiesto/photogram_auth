@@ -1,8 +1,9 @@
+<% @likes.each do |like| %>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
 
-      <% @likes.each do |like| %>
+
       <div class="panel-heading">
         <h3 class="panel-title">
           <%= like.photo.caption %>
@@ -14,7 +15,7 @@
           <td><img src="<%= like.photo.image %>" width=480></td>
         </tr>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
+<% end %>

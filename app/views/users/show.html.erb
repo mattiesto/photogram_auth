@@ -2,11 +2,12 @@
   <h3><%= @user.username %></h3>
 </div>
 
+<% @photos.each do |photo| %>
+
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
 
-      <% @photos.each do |photo| %>
+    <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
           <%= photo.caption %>
@@ -14,11 +15,9 @@
       </div>
 
       <div class="panel-body">
-        <tr>
-          <td><img src="<%= photo.image %>" width=480></td>
-        </tr>
+        <img src="<%= photo.image %>" width=480>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
+<% end %>

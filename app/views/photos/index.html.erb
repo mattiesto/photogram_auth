@@ -5,23 +5,21 @@
   </h1>
 </div>
 
+<% @photos.each do |photo| %>
 <div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th>Caption</th>
-        <th>Image</th>
-        <th>User</th>
-      </tr>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="/users/<%= photo.user_id %>"><%= photo.user.username %></a>
+        </h3>
+      </div>
 
-      <% @photos.each do |photo| %>
-      <tr>
-        <td><%= photo.caption %></td>
-        <td><a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" width=480></a></td>
-        <td><%= photo.user_id %></td>
-      </tr>
-      <% end %>
-
-    </table>
+      <div class="panel-body">
+        <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" width=480></a>
+      </div>
+      
+    </div>
   </div>
 </div>
+<% end %>
