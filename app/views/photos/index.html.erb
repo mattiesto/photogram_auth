@@ -1,8 +1,11 @@
-<div class="page-header">
-  <h1>
-    Photos
-    <a href="/photos/new" class="btn btn-lg btn-success">New Photo</a>
-  </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <a href="/photos/new" class="btn btn-default btn-block"><i class="fa fa-plus"></i>
+      </a>
+      <hr>
+    </div>
+  </div>
 </div>
 
 <% @photos.each do |photo| %>
@@ -18,7 +21,7 @@
       <div class="panel-body">
         <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" width=480></a>
       </div>
-      
+
     </div>
   </div>
 </div>
