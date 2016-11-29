@@ -108,6 +108,12 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_photo/:id", :controller => "photos", :action => "destroy"
+
+  # likes
+  get "/photos_like/:id", :controller => "photos", :action => "photos_like"
+
+  #users_unlike
+  get "/photos_unlike/:id", :controller => "photos", :action => "photos_unlike"
   #------------------------------
 
 

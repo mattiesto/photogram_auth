@@ -23,6 +23,16 @@
       <div class="panel-body">
         <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" class="img-responsive" alt="Responsive image"></a>
 
+        <% if photo.fans.pluck(:user_id).include? current_user.id %>
+        <a href="/photos_unlike/<%= photo.id %>">
+          <i class="fa fa-heart"></i>
+        </a>
+        <% else %>
+        <a href="/photos_like/<%= photo.id %>">
+          <i class="fa fa-heart-o"></i>
+        </a>
+        <% end %>
+
         <ul class="media-list">
 
           <% photo.comments.each do |comment| %>

@@ -5,6 +5,22 @@ class PhotosController < ApplicationController
     render("photos/index.html.erb")
   end
 
+  def photos_like
+    @like = Like.new
+    @like.user_id = current_user.id
+    @like.photo_id = params[:id]
+    @like.save
+
+    redirect_to("/photos")
+  end
+
+  def photos_unlike
+    @like = Like.where(:user_id => current_user.id, :photo_id => params[:id])
+    @like.destroy_all
+
+    redirect_to("/photos")
+  end
+
   def show
     @photo = Photo.find(params[:id])
 
