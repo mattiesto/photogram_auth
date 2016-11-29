@@ -1,4 +1,5 @@
 <div class="container">
+  <hr>
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <a href="/photos/new" class="btn btn-default btn-block"><i class="fa fa-plus"></i>
@@ -15,12 +16,47 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <a href="/users/<%= photo.user_id %>"><%= photo.user.username %></a>
-          <small><%= time_ago_in_words(Time.now) %></small>
+          <small><%= time_ago_in_words(photo.created_at) %> ago</small>
         </h3>
       </div>
 
       <div class="panel-body">
-        <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" width=480></a>
+        <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" class="img-responsive" alt="Responsive image"></a>
+
+        <ul class="media-list">
+
+          <% photo.comments.each do |comment| %>
+          <li class="media">
+            <div class="media-body">
+              <h6 class="media-heading">
+                <a href="/users/<%= photo.user_id %>"><%= comment.user.username %></a>
+                <small><%= time_ago_in_words(Time.now) %>
+                </small>
+              </h6>
+              <%= comment.body %>
+            </div>
+          </li>
+          <% end %>
+
+
+          <li class="media">
+            <div class="media-body">
+              <form action="/create_comment" method="post">
+                <input name="authenticity_token" type="hidden" value="form_authenticity_token">
+                <input type="hidden" name="photo_id" value="<%= photo.id %>">
+                <input type="hidden" name="user_id" value="<%= photo.user_id %>">
+
+                <div class="form-group">
+                  <label for="body" class="sr-only">
+                  </label>
+                  <input type="text" id="body" name="body" placeholder="Add a comment..." class="form-control" required>
+                </div>
+              </form>
+            </div>
+          </li>
+        </ul>
+
+
       </div>
 
     </div>
