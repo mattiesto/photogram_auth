@@ -27,18 +27,6 @@
       <div class="panel-body">
         <img src="<%= photo.image %>" class="img-responsive" alt="Responsive image">
 
-        <!-- ## form -->
-
-        <!-- <p>
-        <form action="/create_like" method="post">
-        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="photo_id" value="<%= photo.id %>">
-        <input type="hidden" name="user_id" value="<%= photo.user_id %>">
-        <button class="btn btn-link">
-        <i class="fa fa-heart-o"></i>
-      </button>
-    </form>
-  </p> -->
 
   <% if photo.fans.pluck(:user_id).include? current_user.id %>
   <a href="/users_unlike/<%= photo.id %>">
